@@ -4,15 +4,20 @@ type ListItemProps = {
     title: string;
     description: string;
     location: string;
+    onPress?: () => void;
 };
 
-export default function ListItem({ title, description, location }: ListItemProps) {
+import { TouchableOpacity } from "react-native";
+
+export default function ListItem({ title, description, location, onPress }: ListItemProps) {
     return (
-        <View style={styles.container}>
-            <Text style={styles.title}>{title}</Text>
-            <Text>{description}</Text>
-            <Text>{location}</Text>
-        </View>
+        <TouchableOpacity onPress={onPress}>
+            <View style={styles.container}>
+                <Text style={styles.title}>{title}</Text>
+                <Text>{description}</Text>
+                <Text>{location}</Text>
+            </View>
+        </TouchableOpacity>
     );
 }
 
